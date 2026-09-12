@@ -1,0 +1,2424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kawaii Stationary Paradise 🌸</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+* {
+    font-family: 'Nunito', sans-serif;
+}
+body {
+    background: linear-gradient(135deg, #ffeef8 0%, #f0e6ff 100%);
+    overflow-x: hidden;
+    margin: 0;
+}
+.page {
+    display: none;
+}
+#loginPage {
+    display: block;
+}
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffeef8 0%, #f0e6ff 100%);
+    padding: 20px;
+}
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(255,107,157,0.25);
+    border: 3px solid #ffd1dc;
+    text-align: center;
+}
+.login-logo {
+    font-size: 5rem;
+    animation: bounce 2s infinite;
+}
+.login-title {
+    color: #ff6b9d;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(255,107,157,0.2);
+}
+.login-form-control {
+    border: 2px solid #ffd1dc;
+    border-radius: 20px;
+    padding: 12px 18px;
+}
+.login-form-control:focus {
+    border-color: #ff6b9d;
+    box-shadow: 0 0 10px rgba(255,107,157,0.2);
+}
+.demo-login {
+    background: #fff0f6;
+    border-radius: 15px;
+    padding: 12px;
+    margin-top: 20px;
+    color: #ff6b9d;
+}
+.login-emoji {
+    position: fixed;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+    pointer-events: none;
+}
+.login-e1 {
+    top: 10%;
+    left: 10%;
+}
+.login-e2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: -1s;
+}
+.login-e3 {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: -2s;
+}
+.login-e4 {
+    bottom: 10%;
+    right: 15%;
+    animation-delay: -1.5s;
+}
+.kawaii-header {
+    background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    padding: 2rem 0;
+    position: relative;
+}
+.kawaii-title {
+    color: #ff6b9d;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(255,107,157,0.3);
+    animation: bounce 2s infinite;
+}
+.floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+.product-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.2);
+    transition: all 0.3s ease;
+    border: 3px solid #ffd1dc;
+}
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255,107,157,0.3);
+}
+.product-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: wiggle 2s ease-in-out infinite;
+}
+.kawaii-btn {
+    background: linear-gradient(45deg, #ff6b9d, #ffa8cc);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 25px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255,107,157,0.3);
+}
+.kawaii-btn:hover {
+    background: linear-gradient(45deg, #ff5588, #ff99bb);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255,107,157,0.4);
+    color: white;
+}
+.heart-animation {
+    color: #ff6b9d;
+    font-size: 1.2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    display: inline-block;
+}
+.navbar-kawaii {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid #ffd1dc;
+}
+.cart-counter {
+    background: #ff6b9d;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+.price-tag {
+    background: linear-gradient(45deg,#ffd700,#ffed4e);
+    color: #ff6b9d;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 10px;
+}
+.kawaii-footer {
+    background: linear-gradient(45deg,#ff9a9e 0%,#fecfef 100%);
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+.sparkle {
+    color: #ffd700;
+    animation: sparkle 1s ease-in-out infinite alternate;
+}
+.welcome-box {
+    background: rgba(255,255,255,0.7);
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 25px;
+    border: 2px solid #ffd1dc;
+}
+.home-feature {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 15px 0;
+    border: 3px solid #ffd1dc;
+    box-shadow: 0 10px 25px rgba(255,107,157,0.15);
+    transition: 0.3s;
+}
+.home-feature:hover {
+    transform: translateY(-5px);
+}
+.feature-emoji {
+    font-size: 4rem;
+}
+.about-box {
+    background: white;
+    border-radius: 25px;
+    padding: 35px;
+    border: 3px solid #ffd1dc;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.15);
+}
+.page-heading {
+    color: #ff6b9d;
+    font-weight: 700;
+}
+.billing-card {
+    background: white;
+    border-radius: 25px;
+    padding: 30px;
+    border: 3px solid #ffd1dc;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.15);
+}
+.billing-title {
+    color: #ff6b9d;
+    font-weight: 700;
+}
+.billing-control {
+    border: 2px solid #ffd1dc;
+    border-radius: 15px;
+    padding: 11px 15px;
+}
+.billing-control:focus {
+    border-color: #ff6b9d;
+    box-shadow: 0 0 10px rgba(255,107,157,0.15);
+}
+.order-summary {
+    background: #fff0f6;
+    border: 2px solid #ffd1dc;
+    border-radius: 20px;
+    padding: 20px;
+}
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+.grand-total {
+    color: #ff6b9d;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.payment-box {
+    border: 2px solid #ffd1dc;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #fffafd;
+}
+.confirmation-card {
+    background: white;
+    max-width: 750px;
+    margin: 40px auto;
+    border-radius: 30px;
+    padding: 40px;
+    border: 3px solid #ffd1dc;
+    box-shadow: 0 15px 40px rgba(255,107,157,0.2);
+}
+.success-icon {
+    font-size: 6rem;
+    animation: bounce 2s infinite;
+}
+.invoice-box {
+    border: 2px dashed #ffb6cf;
+    border-radius: 20px;
+    padding: 25px;
+    background: #fffafd;
+}
+.small-note {
+    font-size: 0.9rem;
+    color: #888;
+}
+@keyframes bounce {
+    0%,20%,50%,80%,100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+@keyframes wiggle {
+    0%,100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+@keyframes heartbeat {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+@keyframes sparkle {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+@media (max-width:768px) {
+    .kawaii-title {
+        font-size: 2.2rem;
+    }
+    .login-card {
+        padding: 25px;
+    }
+    .floating-emoji {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+
+<div id="loginPage" class="page">
+
+<div class="login-page">
+
+<div class="login-emoji login-e1">🌸</div>
+<div class="login-emoji login-e2">✨</div>
+<div class="login-emoji login-e3">🎀</div>
+<div class="login-emoji login-e4">💖</div>
+
+<div class="login-card">
+
+<div class="login-logo">🌸</div>
+
+<h1 class="login-title">Kawaii Stationary</h1>
+
+<p class="text-muted">
+Welcome to your kawaii stationery world! 💖
+</p>
+
+<form id="loginForm">
+
+<div class="mb-3 text-start">
+<label class="form-label fw-bold">Username</label>
+<input type="text"
+id="username"
+class="form-control login-form-control"
+placeholder="Enter username"
+required>
+</div>
+
+<div class="mb-3 text-start">
+<label class="form-label fw-bold">Password</label>
+<input type="password"
+id="password"
+class="form-control login-form-control"
+placeholder="Enter password"
+required>
+</div>
+
+<button type="submit"
+class="btn kawaii-btn w-100">
+Login 🌸
+</button>
+
+</form>
+
+<div class="demo-login">
+<strong>✨ Demo Login ✨</strong>
+<br>
+Username: <strong>admin</strong>
+<br>
+Password: <strong>1234</strong>
+</div>
+
+<p class="mt-3 mb-0 text-muted">
+Made with 💖 for stationery lovers
+</p>
+
+</div>
+</div>
+</div>
+
+
+<!-- ================= HOME PAGE ================= -->
+
+<div id="homePage" class="page">
+
+<nav class="navbar navbar-expand-lg navbar-kawaii fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="javascript:void(0)"
+onclick="showPage('home')"
+style="color:#ff6b9d;">
+
+🌸 Kawaii Stationary 🌸
+
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#homeNavbar">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+id="homeNavbar">
+
+<ul class="navbar-nav ms-auto align-items-center">
+
+<li class="nav-item">
+<a class="nav-link"
+href="javascript:void(0)"
+onclick="showPage('home')">
+🏠 Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="javascript:void(0)"
+onclick="showPage('products')">
+🛍️ Products
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="#homeAbout">
+🌈 About
+</a>
+</li>
+
+<li class="nav-item ms-2">
+<button class="btn kawaii-btn"
+onclick="logout()">
+Logout 🚪
+</button>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+
+
+<header class="kawaii-header text-center"
+style="margin-top:76px;">
+
+<div class="container position-relative">
+
+<div class="floating-emoji"
+style="top:10%;left:10%;">
+🌸
+</div>
+
+<div class="floating-emoji"
+style="top:20%;right:15%;animation-delay:-1s;">
+✨
+</div>
+
+<div class="floating-emoji"
+style="top:15%;left:80%;animation-delay:-2s;">
+🎀
+</div>
+
+<h1 class="kawaii-title display-3 mb-4">
+Welcome to Kawaii Stationary Paradise!
+</h1>
+
+<p class="lead text-muted">
+Hello
+<strong id="homeUsername"
+style="color:#ff6b9d;">
+</strong>
+! 💖
+</p>
+
+<p class="lead text-muted">
+Discover the cutest stationary items that will make your heart flutter
+<span class="heart-animation">💖</span>
+</p>
+
+<button class="btn kawaii-btn btn-lg mt-3"
+onclick="showPage('products')">
+Shop Now
+<span class="sparkle">✨</span>
+</button>
+
+</div>
+</header>
+
+
+<section class="py-5">
+
+<div class="container">
+
+<div class="welcome-box text-center">
+
+<h2 class="page-heading">
+🌸 Your Kawaii Shopping Destination 🌸
+</h2>
+
+<p class="lead">
+Find adorable stationery products designed
+to make studying, working and creating more fun!
+</p>
+
+<button class="btn kawaii-btn"
+onclick="showPage('products')">
+Explore Products 🛍️
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="py-4">
+
+<div class="container">
+
+<h2 class="text-center page-heading mb-4">
+✨ Why Choose Us? ✨
+</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="home-feature text-center">
+
+<div class="feature-emoji">🦄</div>
+
+<h4 style="color:#ff6b9d;">
+Cute Products
+</h4>
+
+<p class="text-muted">
+Carefully selected kawaii stationery
+for everyday happiness.
+</p>
+
+</div>
+</div>
+
+
+<div class="col-md-4">
+
+<div class="home-feature text-center">
+
+<div class="feature-emoji">💖</div>
+
+<h4 style="color:#ff6b9d;">
+Quality Items
+</h4>
+
+<p class="text-muted">
+We combine adorable designs
+with useful and reliable products.
+</p>
+
+</div>
+</div>
+
+
+<div class="col-md-4">
+
+<div class="home-feature text-center">
+
+<div class="feature-emoji">🎀</div>
+
+<h4 style="color:#ff6b9d;">
+Easy Shopping
+</h4>
+
+<p class="text-muted">
+Browse our collection and add
+your favorite items to the cart.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="homeAbout"
+class="py-5">
+
+<div class="container">
+
+<div class="about-box">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h2 style="color:#ff6b9d;">
+About Our Kawaii World 🌈
+</h2>
+
+<p class="lead">
+We believe that stationary should bring joy
+to your everyday life!
+</p>
+
+<p>
+Our carefully curated collection features
+adorable pens, notebooks, stickers and
+accessories that make studying and working
+a delightful experience.
+</p>
+
+<button class="btn kawaii-btn"
+onclick="showPage('products')">
+View Collection 💖
+</button>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<div style="font-size:8rem;animation:bounce 2s infinite;">
+🦄
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<footer class="kawaii-footer text-center">
+
+<div class="container">
+
+<p class="mb-0"
+style="color:#ff6b9d;">
+Made with
+<span class="heart-animation">💖</span>
+for kawaii lovers everywhere!
+</p>
+
+<p class="mt-2">
+<span class="sparkle">✨</span>
+Follow us for more cuteness
+<span class="sparkle">✨</span>
+</p>
+
+</div>
+</footer>
+
+</div>
+
+
+<!-- ================= PRODUCTS PAGE ================= -->
+
+<div id="productsPage" class="page">
+
+<nav class="navbar navbar-expand-lg navbar-kawaii fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="javascript:void(0)"
+onclick="showPage('home')"
+style="color:#ff6b9d;">
+🌸 Kawaii Stationary 🌸
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#productNavbar">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+id="productNavbar">
+
+<ul class="navbar-nav ms-auto align-items-center">
+
+<li class="nav-item">
+<a class="nav-link"
+href="javascript:void(0)"
+onclick="showPage('home')">
+🏠 Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="javascript:void(0)"
+onclick="showPage('products')">
+🛍️ Products
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+href="#productsAbout">
+🌈 About
+</a>
+</li>
+
+<li class="nav-item position-relative ms-2">
+
+<button class="btn kawaii-btn"
+id="cartBtn">
+
+🛒 Cart
+
+<span class="cart-counter"
+id="cartCounter">
+0
+</span>
+
+</button>
+
+</li>
+
+<li class="nav-item ms-2">
+
+<button class="btn kawaii-btn"
+onclick="logout()">
+Logout 🚪
+</button>
+
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+
+<header class="kawaii-header text-center"
+style="margin-top:76px;">
+
+<div class="container position-relative">
+
+<div class="floating-emoji"
+style="top:10%;left:10%;">
+🌸
+</div>
+
+<div class="floating-emoji"
+style="top:20%;right:15%;animation-delay:-1s;">
+✨
+</div>
+
+<div class="floating-emoji"
+style="top:15%;left:80%;animation-delay:-2s;">
+🎀
+</div>
+
+<h1 class="kawaii-title display-3 mb-4">
+Our Kawaii Collection! 🌸
+</h1>
+
+<p class="lead text-muted">
+Pick your favorite stationery items
+and make your collection extra cute!
+<span class="heart-animation">💖</span>
+</p>
+
+</div>
+</header>
+
+
+<section id="products"
+class="py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5"
+style="color:#ff6b9d;">
+
+<span class="sparkle">✨</span>
+Our Kawaii Collection
+<span class="sparkle">✨</span>
+
+</h2>
+
+<div class="row"
+id="productGrid">
+
+</div>
+
+</div>
+</section>
+
+
+<section id="productsAbout"
+class="py-5">
+
+<div class="container">
+
+<div class="about-box">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h2 style="color:#ff6b9d;">
+About Our Kawaii World 🌈
+</h2>
+
+<p class="lead">
+We believe that stationary should bring joy
+to your everyday life!
+</p>
+
+<p>
+Each item is selected for its kawaii factor
+and quality, ensuring you get both cuteness
+and functionality in every purchase!
+</p>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<div style="font-size:8rem;animation:bounce 2s infinite;">
+🦄
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<footer class="kawaii-footer text-center">
+
+<div class="container">
+
+<p class="mb-0"
+style="color:#ff6b9d;">
+Made with
+<span class="heart-animation">💖</span>
+for kawaii lovers everywhere!
+</p>
+
+<p class="mt-2">
+<span class="sparkle">✨</span>
+Follow us for more cuteness
+<span class="sparkle">✨</span>
+</p>
+
+</div>
+</footer>
+
+</div>
+
+
+<!-- ================= BILLING PAGE ================= -->
+
+<div id="billingPage" class="page">
+
+<nav class="navbar navbar-expand-lg navbar-kawaii fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold"
+href="javascript:void(0)"
+onclick="showPage('home')"
+style="color:#ff6b9d;">
+🌸 Kawaii Stationary 🌸
+</a>
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<button class="btn kawaii-btn"
+onclick="showPage('products')">
+← Back to Shopping
+</button>
+</li>
+
+</ul>
+
+</div>
+</nav>
+
+
+<div class="container"
+style="margin-top:110px;margin-bottom:50px;">
+
+<div class="text-center mb-5">
+
+<h1 class="billing-title">
+🧾 Kawaii Checkout
+</h1>
+
+<p class="lead text-muted">
+Complete your billing details to place your order 💖
+</p>
+
+</div>
+
+
+<div class="row g-4">
+
+<!-- BILLING DETAILS -->
+
+<div class="col-lg-7">
+
+<div class="billing-card">
+
+<h3 class="billing-title mb-4">
+👤 Customer Information
+</h3>
+
+<form id="billingForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label fw-bold">
+Full Name *
+</label>
+
+<input type="text"
+id="billingName"
+class="form-control billing-control"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label fw-bold">
+Email *
+</label>
+
+<input type="email"
+id="billingEmail"
+class="form-control billing-control"
+placeholder="example@email.com"
+required>
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label fw-bold">
+Phone Number *
+</label>
+
+<input type="tel"
+id="billingPhone"
+class="form-control billing-control"
+placeholder="Enter phone number"
+pattern="[0-9]{10}"
+required>
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label fw-bold">
+PIN Code *
+</label>
+
+<input type="text"
+id="billingPin"
+class="form-control billing-control"
+placeholder="6 digit PIN"
+pattern="[0-9]{6}"
+required>
+
+</div>
+
+</div>
+
+
+<div class="mb-3">
+
+<label class="form-label fw-bold">
+Address *
+</label>
+
+<textarea
+id="billingAddress"
+class="form-control billing-control"
+rows="3"
+placeholder="House no., Street, Area"
+required></textarea>
+
+</div>
+
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label fw-bold">
+City *
+</label>
+
+<input type="text"
+id="billingCity"
+class="form-control billing-control"
+placeholder="Enter city"
+required>
+
+</div>
+
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label fw-bold">
+State *
+</label>
+
+<select
+id="billingState"
+class="form-select billing-control"
+required>
+
+<option value="">
+Select State
+</option>
+
+<option>Gujarat</option>
+<option>Maharashtra</option>
+<option>Rajasthan</option>
+<option>Delhi</option>
+<option>Karnataka</option>
+<option>Tamil Nadu</option>
+<option>West Bengal</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<h3 class="billing-title mt-4 mb-3">
+💳 Payment Method
+</h3>
+
+
+<div class="payment-box">
+
+<div class="form-check">
+
+<input class="form-check-input"
+type="radio"
+name="payment"
+id="cod"
+value="Cash on Delivery"
+checked>
+
+<label class="form-check-label fw-bold"
+for="cod">
+
+💵 Cash on Delivery
+
+</label>
+
+</div>
+
+<p class="small-note mb-0 ms-4">
+Pay when your kawaii package arrives.
+</p>
+
+</div>
+
+
+<div class="payment-box">
+
+<div class="form-check">
+
+<input class="form-check-input"
+type="radio"
+name="payment"
+id="upi"
+value="UPI">
+
+<label class="form-check-label fw-bold"
+for="upi">
+
+📱 UPI
+
+</label>
+
+</div>
+
+<p class="small-note mb-0 ms-4">
+Demo payment option for this project.
+</p>
+
+</div>
+
+
+<div class="payment-box">
+
+<div class="form-check">
+
+<input class="form-check-input"
+type="radio"
+name="payment"
+id="card"
+value="Credit/Debit Card">
+
+<label class="form-check-label fw-bold"
+for="card">
+
+💳 Credit / Debit Card
+
+</label>
+
+</div>
+
+<p class="small-note mb-0 ms-4">
+Demo payment option for this project.
+</p>
+
+</div>
+
+
+<button type="submit"
+class="btn kawaii-btn btn-lg w-100 mt-4">
+
+Place Order 🌸
+
+</button>
+
+</form>
+
+</div>
+</div>
+
+
+<!-- ORDER SUMMARY -->
+
+<div class="col-lg-5">
+
+<div class="billing-card">
+
+<h3 class="billing-title mb-4">
+🛒 Order Summary
+</h3>
+
+<div id="billingItems">
+
+</div>
+
+<div class="order-summary mt-4">
+
+<div class="summary-row">
+
+<span>
+Subtotal
+</span>
+
+<strong id="billingSubtotal">
+$0.00
+</strong>
+
+</div>
+
+<div class="summary-row">
+
+<span>
+Shipping
+</span>
+
+<strong id="billingShipping">
+$0.00
+</strong>
+
+</div>
+
+<hr>
+
+<div class="summary-row grand-total">
+
+<span>
+Grand Total
+</span>
+
+<span id="billingTotal">
+$0.00
+</span>
+
+</div>
+
+</div>
+
+<div class="text-center mt-3">
+
+<span class="small-note">
+✨ Free shipping on orders over $50 ✨
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= CART MODAL ================= -->
+
+<div class="modal fade"
+id="cartModal"
+tabindex="-1">
+
+<div class="modal-dialog">
+
+<div class="modal-content"
+style="border-radius:20px;border:3px solid #ffd1dc;">
+
+<div class="modal-header"
+style="background:linear-gradient(45deg,#ff9a9e 0%,#fecfef 100%);">
+
+<h5 class="modal-title"
+style="color:#ff6b9d;">
+🛒 Your Kawaii Cart
+</h5>
+
+<button type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+
+<div class="modal-body"
+id="cartItems">
+
+<p class="text-center text-muted">
+Your cart is empty!
+Add some kawaii items 💖
+</p>
+
+</div>
+
+
+<div class="modal-footer">
+
+<button type="button"
+class="btn kawaii-btn"
+data-bs-dismiss="modal">
+Continue Shopping
+</button>
+
+<button type="button"
+class="btn kawaii-btn"
+id="checkoutBtn"
+style="display:none;">
+Checkout 🌸
+</button>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ================= ORDER CONFIRMATION PAGE ================= -->
+
+<div id="confirmationPage" class="page">
+
+<div class="container">
+
+<div class="confirmation-card text-center">
+
+<div class="success-icon">
+🎉
+</div>
+
+<h1 class="billing-title">
+Order Placed Successfully!
+</h1>
+
+<p class="lead">
+Thank you for shopping with Kawaii Stationary 💖
+</p>
+
+<div class="invoice-box text-start mt-4">
+
+<div class="text-center mb-4">
+
+<h3 style="color:#ff6b9d;">
+🧾 Kawaii Stationary Invoice
+</h3>
+
+<p class="mb-0">
+Order ID:
+<strong id="orderId">
+</strong>
+</p>
+
+<p>
+Date:
+<strong id="orderDate">
+</strong>
+</p>
+
+</div>
+
+
+<h5 style="color:#ff6b9d;">
+Customer Details
+</h5>
+
+<p class="mb-1">
+<strong>Name:</strong>
+<span id="invoiceName"></span>
+</p>
+
+<p class="mb-1">
+<strong>Email:</strong>
+<span id="invoiceEmail"></span>
+</p>
+
+<p class="mb-1">
+<strong>Phone:</strong>
+<span id="invoicePhone"></span>
+</p>
+
+<p class="mb-1">
+<strong>Address:</strong>
+<span id="invoiceAddress"></span>
+</p>
+
+<p class="mb-1">
+<strong>City:</strong>
+<span id="invoiceCity"></span>
+</p>
+
+<p class="mb-1">
+<strong>State:</strong>
+<span id="invoiceState"></span>
+</p>
+
+<p>
+<strong>Payment:</strong>
+<span id="invoicePayment"></span>
+</p>
+
+
+<hr>
+
+
+<h5 style="color:#ff6b9d;">
+Products
+</h5>
+
+<div id="invoiceProducts">
+</div>
+
+
+<hr>
+
+
+<div class="summary-row">
+
+<strong>
+Subtotal
+</strong>
+
+<strong id="invoiceSubtotal">
+$0.00
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<strong>
+Shipping
+</strong>
+
+<strong id="invoiceShipping">
+$0.00
+</strong>
+
+</div>
+
+
+<div class="summary-row grand-total">
+
+<strong>
+Grand Total
+</strong>
+
+<strong id="invoiceTotal">
+$0.00
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="mt-4">
+
+<button class="btn kawaii-btn me-2"
+onclick="printInvoice()">
+
+🖨️ Print Invoice
+
+</button>
+
+<button class="btn kawaii-btn"
+onclick="showPage('home')">
+
+🏠 Back to Home
+
+</button>
+
+</div>
+
+<p class="text-muted mt-4 mb-0">
+Your kawaii products will be prepared with love! 🌸💖
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let cart = [];
+
+let currentOrder = null;
+
+
+/* ================= PRODUCT DATA ================= */
+
+const products = [
+
+{
+id:1,
+name:"Unicorn Gel Pens Set",
+emoji:"🦄",
+price:12.99,
+description:"Magical gel pens with glitter ink in pastel colors!"
+},
+
+{
+id:2,
+name:"Cat Sticky Notes",
+emoji:"🐱",
+price:8.50,
+description:"Adorable cat-shaped sticky notes in various expressions!"
+},
+
+{
+id:3,
+name:"Rainbow Washi Tape",
+emoji:"🌈",
+price:15.99,
+description:"Beautiful rainbow washi tape set for decorating!"
+},
+
+{
+id:4,
+name:"Bunny Notebook",
+emoji:"🐰",
+price:18.99,
+description:"Soft cover notebook with cute bunny illustrations!"
+},
+
+{
+id:5,
+name:"Star Sticker Pack",
+emoji:"⭐",
+price:6.99,
+description:"Holographic star stickers that sparkle and shine!"
+},
+
+{
+id:6,
+name:"Kawaii Erasers Set",
+emoji:"🍰",
+price:9.99,
+description:"Food-shaped erasers that look good enough to eat!"
+}
+
+];
+
+
+/* ================= PAGE REDIRECTION ================= */
+
+function showPage(page) {
+
+if(page !== "login" &&
+sessionStorage.getItem("loggedIn") !== "true") {
+
+page = "login";
+
+}
+
+$(".page").hide();
+
+if(page === "login") {
+
+$("#loginPage").show();
+
+}
+
+if(page === "home") {
+
+$("#homePage").show();
+
+$("#homeUsername").text(
+sessionStorage.getItem("username") || "Kawaii Lover"
+);
+
+}
+
+if(page === "products") {
+
+$("#productsPage").show();
+
+loadProducts();
+
+}
+
+if(page === "billing") {
+
+if(cart.length === 0) {
+
+showKawaiiAlert(
+"Your cart is empty! Please add a product first. 🛒"
+);
+
+showPage("products");
+
+return;
+
+}
+
+$("#billingPage").show();
+
+loadBillingSummary();
+
+}
+
+if(page === "confirmation") {
+
+$("#confirmationPage").show();
+
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* ================= LOGIN ================= */
+
+$("#loginForm").submit(function(e) {
+
+e.preventDefault();
+
+const username =
+$("#username").val().trim();
+
+const password =
+$("#password").val().trim();
+
+if(username === "admin" &&
+password === "1234") {
+
+sessionStorage.setItem(
+"loggedIn",
+"true"
+);
+
+sessionStorage.setItem(
+"username",
+username
+);
+
+showKawaiiAlert(
+"Login successful! Welcome " +
+username +
+"! 🌸"
+);
+
+setTimeout(function() {
+
+showPage("home");
+
+},800);
+
+} else {
+
+showKawaiiAlert(
+"❌ Invalid username or password!"
+);
+
+}
+
+});
+
+
+/* ================= LOGOUT ================= */
+
+function logout() {
+
+sessionStorage.removeItem("loggedIn");
+
+sessionStorage.removeItem("username");
+
+cart = [];
+
+updateCartCounter();
+
+showPage("login");
+
+$("#username").val("");
+
+$("#password").val("");
+
+}
+
+
+/* ================= LOAD PRODUCTS ================= */
+
+function loadProducts() {
+
+const productGrid =
+$("#productGrid");
+
+productGrid.empty();
+
+products.forEach(function(product) {
+
+const productCard = `
+
+<div class="col-lg-4 col-md-6">
+
+<div class="product-card text-center">
+
+<span class="product-emoji">
+${product.emoji}
+</span>
+
+<h4 style="color:#ff6b9d;">
+${product.name}
+</h4>
+
+<p class="text-muted">
+${product.description}
+</p>
+
+<div class="price-tag">
+$${product.price.toFixed(2)}
+</div>
+
+<br>
+
+<button
+class="btn kawaii-btn mt-3 add-to-cart"
+data-product-id="${product.id}">
+
+Add to Cart 💖
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+productGrid.append(productCard);
+
+});
+
+}
+
+
+/* ================= ADD TO CART ================= */
+
+$(document).on(
+"click",
+".add-to-cart",
+function() {
+
+const productId =
+parseInt(
+$(this).data("product-id")
+);
+
+const product =
+products.find(
+function(p) {
+return p.id === productId;
+}
+);
+
+if(product) {
+
+cart.push(product);
+
+updateCartCounter();
+
+const button = $(this);
+
+button
+.html("Added! 🌸")
+.prop("disabled",true);
+
+setTimeout(function() {
+
+button
+.html("Add to Cart 💖")
+.prop("disabled",false);
+
+},1500);
+
+showKawaiiAlert(
+product.emoji +
+" " +
+product.name +
+" added to cart!"
+);
+
+}
+
+}
+);
+
+
+/* ================= CART COUNTER ================= */
+
+function updateCartCounter() {
+
+$("#cartCounter").text(
+cart.length
+);
+
+}
+
+
+/* ================= SHOW CART ================= */
+
+$("#cartBtn").click(function() {
+
+updateCartModal();
+
+const modal =
+new bootstrap.Modal(
+document.getElementById("cartModal")
+);
+
+modal.show();
+
+});
+
+
+/* ================= UPDATE CART ================= */
+
+function updateCartModal() {
+
+const cartItems =
+$("#cartItems");
+
+if(cart.length === 0) {
+
+cartItems.html(`
+
+<p class="text-center text-muted">
+
+Your cart is empty!
+Add some kawaii items 💖
+
+</p>
+
+`);
+
+$("#checkoutBtn").hide();
+
+return;
+
+}
+
+let cartHTML = "";
+
+let total = 0;
+
+cart.forEach(function(item,index) {
+
+total += item.price;
+
+cartHTML += `
+
+<div
+class="d-flex
+justify-content-between
+align-items-center
+mb-2
+p-2"
+style="
+background:#ffeef8;
+border-radius:10px;
+">
+
+<span>
+
+${item.emoji}
+${item.name}
+
+</span>
+
+<span>
+
+$${item.price.toFixed(2)}
+
+</span>
+
+</div>
+
+`;
+
+});
+
+
+cartHTML += `
+
+<hr>
+
+<div
+class="d-flex
+justify-content-between
+align-items-center">
+
+<strong style="color:#ff6b9d;">
+
+Total:
+$${total.toFixed(2)}
+
+</strong>
+
+</div>
+
+`;
+
+cartItems.html(cartHTML);
+
+$("#checkoutBtn").show();
+
+}
+
+
+/* ================= CHECKOUT BUTTON ================= */
+
+$("#checkoutBtn").click(function() {
+
+if(cart.length === 0) {
+
+showKawaiiAlert(
+"Your cart is empty! 🛒"
+);
+
+return;
+
+}
+
+const modalElement =
+document.getElementById("cartModal");
+
+const modal =
+bootstrap.Modal.getInstance(
+modalElement
+);
+
+if(modal) {
+
+modal.hide();
+
+}
+
+setTimeout(function() {
+
+showPage("billing");
+
+},300);
+
+});
+
+
+/* ================= BILLING SUMMARY ================= */
+
+function loadBillingSummary() {
+
+let subtotal = 0;
+
+let billingHTML = "";
+
+cart.forEach(function(item) {
+
+subtotal += item.price;
+
+billingHTML += `
+
+<div
+class="d-flex
+justify-content-between
+align-items-center
+mb-3
+p-2"
+style="
+background:#fff0f6;
+border-radius:12px;
+">
+
+<div>
+
+<span style="font-size:1.5rem;">
+${item.emoji}
+</span>
+
+<strong>
+${item.name}
+</strong>
+
+</div>
+
+<strong>
+$${item.price.toFixed(2)}
+</strong>
+
+</div>
+
+`;
+
+});
+
+let shipping = subtotal >= 50 ? 0 : 5;
+
+let total = subtotal + shipping;
+
+$("#billingItems").html(
+billingHTML
+);
+
+$("#billingSubtotal").text(
+"$" + subtotal.toFixed(2)
+);
+
+$("#billingShipping").text(
+shipping === 0
+? "FREE"
+: "$" + shipping.toFixed(2)
+);
+
+$("#billingTotal").text(
+"$" + total.toFixed(2)
+);
+
+}
+
+
+/* ================= BILLING FORM ================= */
+
+$("#billingForm").submit(function(e) {
+
+e.preventDefault();
+
+if(cart.length === 0) {
+
+showKawaiiAlert(
+"Your cart is empty!"
+);
+
+showPage("products");
+
+return;
+
+}
+
+
+const name =
+$("#billingName").val().trim();
+
+const email =
+$("#billingEmail").val().trim();
+
+const phone =
+$("#billingPhone").val().trim();
+
+const pin =
+$("#billingPin").val().trim();
+
+const address =
+$("#billingAddress").val().trim();
+
+const city =
+$("#billingCity").val().trim();
+
+const state =
+$("#billingState").val();
+
+const payment =
+$("input[name='payment']:checked").val();
+
+
+let subtotal = 0;
+
+cart.forEach(function(item) {
+
+subtotal += item.price;
+
+});
+
+let shipping =
+subtotal >= 50 ? 0 : 5;
+
+let total =
+subtotal + shipping;
+
+
+/* CREATE ORDER ID */
+
+const orderId =
+"KAW" +
+Date.now().toString().slice(-8);
+
+
+/* CREATE ORDER */
+
+currentOrder = {
+
+orderId:orderId,
+
+date:new Date().toLocaleString(),
+
+name:name,
+
+email:email,
+
+phone:phone,
+
+pin:pin,
+
+address:address,
+
+city:city,
+
+state:state,
+
+payment:payment,
+
+items:[...cart],
+
+subtotal:subtotal,
+
+shipping:shipping,
+
+total:total
+
+};
+
+
+/* DISPLAY INVOICE */
+
+$("#orderId").text(
+currentOrder.orderId
+);
+
+$("#orderDate").text(
+currentOrder.date
+);
+
+$("#invoiceName").text(
+currentOrder.name
+);
+
+$("#invoiceEmail").text(
+currentOrder.email
+);
+
+$("#invoicePhone").text(
+currentOrder.phone
+);
+
+$("#invoiceAddress").text(
+currentOrder.address
+);
+
+$("#invoiceCity").text(
+currentOrder.city
+);
+
+$("#invoiceState").text(
+currentOrder.state +
+" - " +
+currentOrder.pin
+);
+
+$("#invoicePayment").text(
+currentOrder.payment
+);
+
+
+let invoiceHTML = "";
+
+currentOrder.items.forEach(function(item) {
+
+invoiceHTML += `
+
+<div
+class="summary-row">
+
+<span>
+${item.emoji}
+${item.name}
+</span>
+
+<strong>
+$${item.price.toFixed(2)}
+</strong>
+
+</div>
+
+`;
+
+});
+
+$("#invoiceProducts").html(
+invoiceHTML
+);
+
+$("#invoiceSubtotal").text(
+"$" +
+currentOrder.subtotal.toFixed(2)
+);
+
+$("#invoiceShipping").text(
+currentOrder.shipping === 0
+? "FREE"
+: "$" +
+currentOrder.shipping.toFixed(2)
+);
+
+$("#invoiceTotal").text(
+"$" +
+currentOrder.total.toFixed(2)
+);
+
+
+/* CLEAR CART */
+
+cart = [];
+
+updateCartCounter();
+
+
+/* SHOW CONFIRMATION */
+
+showKawaiiAlert(
+"Order placed successfully! 🎉"
+);
+
+setTimeout(function() {
+
+showPage("confirmation");
+
+},800);
+
+});
+
+
+/* ================= PRINT INVOICE ================= */
+
+function printInvoice() {
+
+const printContent =
+document.querySelector(
+".invoice-box"
+).innerHTML;
+
+const originalContent =
+document.body.innerHTML;
+
+document.body.innerHTML = `
+
+<div style="
+padding:40px;
+font-family:Arial,sans-serif;
+">
+
+<h1 style="
+text-align:center;
+color:#ff6b9d;
+">
+🌸 Kawaii Stationary Invoice
+</h1>
+
+${printContent}
+
+</div>
+
+`;
+
+window.print();
+
+document.body.innerHTML =
+originalContent;
+
+location.reload();
+
+}
+
+
+/* ================= KAWAII ALERT ================= */
+
+function showKawaiiAlert(message) {
+
+const alertBox = $(`
+
+<div
+class="alert
+position-fixed"
+style="
+top:100px;
+right:20px;
+z-index:9999;
+border-radius:15px;
+border:2px solid #ff6b9d;
+background:linear-gradient(45deg,#ffeef8,#f0e6ff);
+box-shadow:0 10px 25px rgba(255,107,157,0.2);
+">
+
+<span style="color:#ff6b9d;">
+${message}
+</span>
+
+</div>
+
+`);
+
+$("body").append(alertBox);
+
+setTimeout(function() {
+
+alertBox.fadeOut(
+500,
+function() {
+
+$(this).remove();
+
+}
+);
+
+},2500);
+
+}
+
+
+/* ================= FLOATING HEARTS ================= */
+
+$(window).scroll(function() {
+
+if(Math.random() > 0.98) {
+
+createFloatingHeart();
+
+}
+
+});
+
+
+function createFloatingHeart() {
+
+const heart = $(`
+
+<div
+class="position-fixed"
+style="
+font-size:1.5rem;
+color:#ff6b9d;
+pointer-events:none;
+z-index:1000;
+">
+
+💖
+
+</div>
+
+`);
+
+heart.css({
+
+left:
+Math.random() *
+$(window).width(),
+
+top:
+$(window).height()
+
+});
+
+$("body").append(heart);
+
+heart.animate(
+
+{
+top:-50,
+opacity:0
+},
+
+3000,
+
+function() {
+
+$(this).remove();
+
+}
+
+);
+
+}
+
+
+/* ================= INITIALIZE ================= */
+
+$(document).ready(function() {
+
+if(
+sessionStorage.getItem("loggedIn")
+===
+"true"
+) {
+
+showPage("home");
+
+} else {
+
+showPage("login");
+
+}
+
+setInterval(
+createFloatingHeart,
+5000
+);
+
+});
+
+</script>
+
+</body>
+</html>
